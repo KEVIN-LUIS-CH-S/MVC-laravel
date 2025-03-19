@@ -1,24 +1,21 @@
-<!-- resources/views/auth/registrar.blade.php -->
-
-<div class="register-container">
-    <h1>Registrar Usuario</h1>
-    <form method="POST" action="{{ route('registrar') }}">
-        @csrf
+<!-- resources/views/livewire/registro-usuario.blade.php -->
+<div>
+    <form wire:submit.prevent="registrar">
         <div class="form-group">
             <label for="nombre">Nombre:</label>
-            <input type="text" id="nombre" name="nombre" required autofocus>
+            <input type="text" id="nombre" wire:model="nombre" required autofocus>
         </div>
         <div class="form-group">
             <label for="email">Correo Electrónico:</label>
-            <input type="email" id="email" name="email" required>
+            <input type="email" id="email" wire:model="email" required>
         </div>
         <div class="form-group">
             <label for="contraseña">Contraseña:</label>
-            <input type="password" id="contraseña" name="contraseña" required>
+            <input type="password" id="contraseña" wire:model="contraseña" required>
         </div>
         <div class="form-group">
             <label for="contraseña_confirmation">Confirmar Contraseña:</label>
-            <input type="password" id="contraseña_confirmation" name="contraseña_confirmation" required>
+            <input type="password" id="contraseña_confirmation" wire:model="contraseña_confirmation" required>
         </div>
         <div class="form-group">
             <button type="submit">Registrar</button>
