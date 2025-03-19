@@ -4,6 +4,7 @@
 use Illuminate\Support\Facades\Route;
 use Livewire\Volt\Volt;
 use App\Http\Controllers\Auth\ControladorDeInicioSesion;
+use App\Http\Controllers\Auth\ControladorDeRegistro;
 
 // Redirección automática a la página de inicio de sesión
 Route::get('/', function () {
@@ -15,6 +16,12 @@ Route::get('iniciar-sesion', [ControladorDeInicioSesion::class, 'mostrarFormular
 
 // Ruta para manejar el inicio de sesión (opcional, si decides implementar la lógica de inicio de sesión)
 Route::post('iniciar-sesion', [ControladorDeInicioSesion::class, 'iniciarSesion']);
+
+// Ruta para mostrar el formulario de registro
+Route::get('registrar', [ControladorDeRegistro::class, 'mostrarFormularioDeRegistro'])->name('registrar');
+
+// Ruta para manejar el registro de usuarios
+Route::post('registrar', [ControladorDeRegistro::class, 'registrar']);
 
 Route::view('dashboard', 'dashboard')
     ->middleware(['auth', 'verified'])
